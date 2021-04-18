@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="content-section container m-5 bg-light shadow mx-auto p-2">
+
+        <div class="border rounded p-3">
+            <div class="form-group border-bottom">
+                <legend class="border-bottom mb-4">Delete Post</legend>
+                <h2>Are you sure you want to delete the post "{{ object.title }}"</h2>
+            </div>
+            <div>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'detailPost' object.id %}">Cancel</a>
+                    <button class="btn btn-secondary btn-sm mt-1 mb-1" type="submit">Yes</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
